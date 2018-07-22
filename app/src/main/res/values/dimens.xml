@@ -2,4 +2,5 @@
 <resources>
     <dimen name="square">50dp</dimen>
     <dimen name="leftMargin">8dp</dimen>
+    <dimen name="check_box_margin">24dp</dimen>
 </resources>
