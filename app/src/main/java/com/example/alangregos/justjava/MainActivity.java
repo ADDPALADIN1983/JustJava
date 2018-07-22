@@ -1,5 +1,7 @@
 package com.example.alangregos.justjava;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -15,10 +17,8 @@ import java.text.NumberFormat;
  */
 public class MainActivity extends AppCompatActivity {
 
-    int numberOfCoffees = 0;
+    int numberOfCoffees = 1;
     int basePricePerCupOfCoffee = 5;
-    boolean whippedCream = false;
-//    boolean chocolate = false;
     int priceOfWhippedCream = 1;
     int priceOfChocolate = 2;
     String name = "";
@@ -38,14 +38,28 @@ public class MainActivity extends AppCompatActivity {
         hasWhippedCream();
         hasChocolate();
         displayPrice(numberOfCoffees);
-        String priceMessage = createOrderSummary(numberOfCoffees);
+        String priceMessage = createOrderSummary();
         displayMessage(priceMessage);
+
+
+        /*
+        Code to push order out to an email system. EXTRA_SUBJECT is the subject line and EXTRA_TEXT is the body of the email
+         */
+//        Intent intent = new Intent(Intent.ACTION_SENDTO);
+//        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+//        intent.putExtra(Intent.EXTRA_SUBJECT, getText(R.string.order_summary_email_subject) + name);
+//        intent.putExtra(Intent.EXTRA_TEXT, priceMessage);
+//        if (intent.resolveActivity(getPackageManager()) != null) {
+//            startActivity(intent);
+//        }
     }
 
     //Is the Whipped Cream check box selected
-    private void hasWhippedCream() {
+    private boolean hasWhippedCream() {
+        boolean whippedCream = false;
         CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_check_box);
         whippedCream = whippedCreamCheckBox.isChecked();
+        return whippedCream;
     }
 
     //Is the chocolate check box selected
@@ -89,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void displayPrice(int numberOfCoffees) {
         TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
-        orderSummaryTextView.setText(NumberFormat.getCurrencyInstance().format(numberOfCoffees * 5));
+        orderSummaryTextView.setText(NumberFormat.getCurrencyInstance().format(numberOfCoffees * basePricePerCupOfCoffee));
 
     }
 
@@ -105,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         int price;
         price = numberOfCoffees * basePricePerCupOfCoffee;
 
-        if (whippedCream == true) {
+        if (hasWhippedCream() == true) {
             price += numberOfCoffees * priceOfWhippedCream;
         }
         if (hasChocolate() == true) {
@@ -115,16 +129,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private String createOrderSummary(int quantity) {
-        String message = "Name: " + name;
-        if (whippedCream == true) {
-            message += "\nWith whipped cream.";
+    private String createOrderSummary() {
+        String message = getString(R.string.order_summary_name) + " " + name;
+        if (hasWhippedCream()) {
+            message += "\n" + getString(R.string.order_summary_whipped_cream);
         }
-        if (hasChocolate() == true) {
-            message += "\nWith chocolate.";
+        if (hasChocolate()) {
+            message += "\n" + getString(R.string.order_summary_chocolate);
         }
-        message += "\nQuantity: " + quantity + "\nTotal: $ " + calculatePrice() + "\nThank You!";
+        message += "\n" + getString(R.string.order_summary_quantity) + " " + numberOfCoffees + "\n"
+                + getString(R.string.order_summary_price) + " " + NumberFormat.getCurrencyInstance().format(calculatePrice())
+                + "\n" + getString(R.string.thank_you);
 
         return message;
-}
+    }
 }
