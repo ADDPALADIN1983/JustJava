@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.NumberFormat;
 
@@ -14,9 +16,13 @@ import java.text.NumberFormat;
 public class MainActivity extends AppCompatActivity {
 
     int numberOfCoffees = 0;
-    int pricePerCup = 5;
-boolean whippedCream = false;
-boolean chocolate = false;
+    int basePricePerCupOfCoffee = 5;
+    boolean whippedCream = false;
+//    boolean chocolate = false;
+    int priceOfWhippedCream = 1;
+    int priceOfChocolate = 2;
+    String name = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,12 +33,27 @@ boolean chocolate = false;
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_check_box);
-        whippedCream = whippedCreamCheckBox.isChecked();
-        CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_check_box);
-        chocolate = chocolateCheckBox.isChecked();displayPrice(numberOfCoffees);
+        EditText nameField = (EditText) findViewById(R.id.name_field);
+        name = nameField.getText().toString();
+        hasWhippedCream();
+        hasChocolate();
+        displayPrice(numberOfCoffees);
         String priceMessage = createOrderSummary(numberOfCoffees);
         displayMessage(priceMessage);
+    }
+
+    //Is the Whipped Cream check box selected
+    private void hasWhippedCream() {
+        CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_check_box);
+        whippedCream = whippedCreamCheckBox.isChecked();
+    }
+
+    //Is the chocolate check box selected
+    private boolean hasChocolate() {
+        boolean chocolate = false;
+        CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_check_box);
+        chocolate = chocolateCheckBox.isChecked();
+        return chocolate;
     }
 
     /**
@@ -47,9 +68,11 @@ boolean chocolate = false;
      * This method is used to decrease quantity.
      */
     public void decrement(View view) {
-        if (numberOfCoffees > 0) {
+        if (numberOfCoffees > 1) {
             numberOfCoffees = numberOfCoffees - 1;
             displayQuantity(numberOfCoffees);
+        } else {
+            Toast.makeText(this, "You must order at least 1 cup.", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -79,12 +102,29 @@ boolean chocolate = false;
     }
 
     private int calculatePrice() {
-        return numberOfCoffees * pricePerCup;
+        int price;
+        price = numberOfCoffees * basePricePerCupOfCoffee;
+
+        if (whippedCream == true) {
+            price += numberOfCoffees * priceOfWhippedCream;
+        }
+        if (hasChocolate() == true) {
+            price += numberOfCoffees * priceOfChocolate;
+        }
+        return price;
 
     }
 
     private String createOrderSummary(int quantity) {
-        String message = "Name: AlanGregos \nAdd whipped cream? " + whippedCream + "\n A chocolate? " + chocolate + "\nQuantity: " + quantity + "\nTotal: $ " + calculatePrice() + "\nThank You!";
+        String message = "Name: " + name;
+        if (whippedCream == true) {
+            message += "\nWith whipped cream.";
+        }
+        if (hasChocolate() == true) {
+            message += "\nWith chocolate.";
+        }
+        message += "\nQuantity: " + quantity + "\nTotal: $ " + calculatePrice() + "\nThank You!";
+
         return message;
-    }
+}
 }

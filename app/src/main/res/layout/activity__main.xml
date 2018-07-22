@@ -7,6 +7,15 @@
     android:orientation="vertical"
     tools:context="com.example.alangregos.justjava.MainActivity">
 
+    <EditText
+        android:id="@+id/name_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="@dimen/leftMargin"
+        android:hint="Name"
+        android:inputType="textCapWords"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
