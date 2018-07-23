@@ -13,7 +13,7 @@
     <string name="whipped_cream">Crema batida</string>
 
     <!-- Hint text display in the empty field for the user's name [CHAR LIMIT=20] -->
-    <string name="chocolate">Chocolate</string>
+    <string name="chocolate">Siocled</string>
 
     <!-- Hint text display in the empty field for the user's name [CHAR LIMIT=20] -->
     <string name="quantity">Nifer</string>
@@ -22,7 +22,7 @@
     <string name="initial_quantity_value">2</string>
 
     <!-- Hint text display in the empty field for the user's name [CHAR LIMIT=20] -->
-    <string name="order">Ordenar</string>
+    <string name="order">Gorchymyn</string>
 
     <!--
       Name for the order summary. It will be shown in the format of "Name: Amy" where Amy is the
@@ -31,7 +31,7 @@
     <string name="order_summary_name">Enw: <xliff:g id="name" example="Amy">%s</xliff:g></string>
 
     <!--
-      Whipped cream topping for the order summary. It will display "With whipped cream." if they added ewhipped cream topping. [CHAR LIMIT=NONE] [CHAR LIMIT=NONE]
+      Whipped cream topping for the order summary. It will display "With whipped cream." if they added ewhipped cream topping. [CHAR LIMIT=NONE]
     -->
     <string name="order_summary_whipped_cream">Gyda hufen chwipio. <xliff:g id="addWhippedCream" example="true">%b</xliff:g></string>
 
