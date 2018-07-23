@@ -11,11 +11,11 @@
         android:id="@+id/name_field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginLeft="@dimen/leftMargin"
+        android:layout_marginTop="16dp"
         android:hint="@string/name"
-        android:inputType="textCapWords"
-        />
+        android:inputType="textCapWords" />
+
     <TextView
         style="@style/Header_Text_Style"
         android:layout_marginLeft="@dimen/leftMargin"
@@ -124,6 +124,6 @@
         android:layout_marginLeft="@dimen/leftMargin"
         android:layout_marginTop="16sp"
         android:onClick="submitOrder"
-        android:text="@string/orderButtonText" />
+        android:text="@string/order_button_text" />
 
 </LinearLayout>

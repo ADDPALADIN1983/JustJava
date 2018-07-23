@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Just Java</string>
-    <string name="orderButtonText">Order</string>
+    <string name="order_button_text">Order</string>
     <string name="quantity_header">Quantity</string>
     <string name="order_summary">Order Summary</string>
     <string name="minus">-</string>

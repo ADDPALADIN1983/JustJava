@@ -37,21 +37,22 @@ public class MainActivity extends AppCompatActivity {
         name = nameField.getText().toString();
         hasWhippedCream();
         hasChocolate();
-        displayPrice(numberOfCoffees);
+//        displayPrice(numberOfCoffees);
         String priceMessage = createOrderSummary();
-        displayMessage(priceMessage);
+//        displayMessage(priceMessage);  // commetted out after testing to implement push to email.
 
 
         /*
         Code to push order out to an email system. EXTRA_SUBJECT is the subject line and EXTRA_TEXT is the body of the email
+        Commented out for testing because the virtual device doesn't have a functional email system to use in testing.
          */
-//        Intent intent = new Intent(Intent.ACTION_SENDTO);
-//        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
-//        intent.putExtra(Intent.EXTRA_SUBJECT, getText(R.string.order_summary_email_subject) + name);
-//        intent.putExtra(Intent.EXTRA_TEXT, priceMessage);
-//        if (intent.resolveActivity(getPackageManager()) != null) {
-//            startActivity(intent);
-//        }
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_SUBJECT, getText(R.string.order_summary_email_subject) + name);
+        intent.putExtra(Intent.EXTRA_TEXT, priceMessage);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 
     //Is the Whipped Cream check box selected
@@ -108,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method displays the given text on the screen.
+     * This method displays the given text on the screen. Used for virtual testing.
      */
     private void displayMessage(String message) {
         TextView priceTextView = findViewById(R.id.order_summary_text_view);

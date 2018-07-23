@@ -1,56 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
     <!-- Title for the application. [CHAR LIMIT=12] -->
     <string name="app_name">Dim ond Java</string>
 
     <!-- Hint text display in the empty field for the user's name [CHAR LIMIT=20] -->
-    <string name="name">Gorchymyn</string>
+    <string name="name">Enw</string>
 
-    <!-- Hint text display in the empty field for the user's name [CHAR LIMIT=20] -->
+    <!-- Header for the toppings selection boxes [CHAR LIMIT=20] -->
     <string name="toppings">Toppings</string>
 
-    <!-- Hint text display in the empty field for the user's name [CHAR LIMIT=20] -->
-    <string name="whipped_cream">Crema batida</string>
+    <!-- Label for the selection box to add whipped cream topping. [CHAR LIMIT=20] -->
+    <string name="whipped_cream">Hufen Chwip</string>
 
-    <!-- Hint text display in the empty field for the user's name [CHAR LIMIT=20] -->
+    <!-- Label for the selection box to add Chocolate topping. [CHAR LIMIT=20] -->
     <string name="chocolate">Siocled</string>
 
-    <!-- Hint text display in the empty field for the user's name [CHAR LIMIT=20] -->
-    <string name="quantity">Nifer</string>
+    <!-- Header for the quantity selection buttons [CHAR LIMIT=20] -->
+    <string name="quantity_header">Nifer</string>
 
     <!-- Hint text display in the empty field for the user's name [CHAR LIMIT=5] -->
     <string name="initial_quantity_value">2</string>
 
     <!-- Hint text display in the empty field for the user's name [CHAR LIMIT=20] -->
-    <string name="order">Gorchymyn</string>
+    <string name="order_button_text">Archeb</string>
+
+    <!--Order Summary header -->
+    <string name="order_summary">Gorchymyn</string>
+
 
     <!--
       Name for the order summary. It will be shown in the format of "Name: Amy" where Amy is the
       user's name. [CHAR LIMIT=NONE]
     -->
-    <string name="order_summary_name">Enw: <xliff:g id="name" example="Amy">%s</xliff:g></string>
+    <string name="order_summary_name">Enw: <xliff:g example="Amy" id="name"></xliff:g></string>
 
     <!--
-      Whipped cream topping for the order summary. It will display "With whipped cream." if they added ewhipped cream topping. [CHAR LIMIT=NONE]
+      Whipped cream topping for the order summary. It will display "With whipped cream." if they added whipped cream topping. [CHAR LIMIT=NONE]
     -->
-    <string name="order_summary_whipped_cream">Gyda hufen chwipio. <xliff:g id="addWhippedCream" example="true">%b</xliff:g></string>
+    <string name="order_summary_whipped_cream">Gyda hufen chwipio. <xliff:g example="true" id="addWhippedCream"></xliff:g></string>
 
     <!--
       Chocolate topping for the order summary. It will display "With chocolate." if they added chocolate topping. [CHAR LIMIT=NONE]
     -->
-    <string name="order_summary_chocolate">Gyda siocled. <xliff:g id="addChocolate" example="true">%b</xliff:g></string>
+    <string name="order_summary_chocolate">Gyda siocled. <xliff:g example="true" id="addChocolate"></xliff:g></string>
 
     <!--
       Quantity of coffee cups for the order summary. It will be shown in the format of
       "Quantity: 2", where 2 is the number of cups ordered. [CHAR LIMIT=NONE]
     -->
-    <string name="order_summary_quantity">Nifer: <xliff:g id="quantity" example="2">%d</xliff:g></string>
+    <string name="order_summary_quantity">Nifer: <xliff:g example="2" id="quantity"></xliff:g></string>
 
     <!--
       Total price for the order summary. It will be shown in the format of
       "Total: $10" where $10 is the price. [CHAR LIMIT=NONE]
     -->
-    <string name="order_summary_price">Cyfanswm:: <xliff:g id="price" example="$10">%s</xliff:g></string>
+    <string name="order_summary_price">Cyfanswm: <xliff:g example="$10" id="price"></xliff:g></string>
 
     <!-- Thank you message for the order summary. [CHAR LIMIT=NONE] -->
     <string name="thank_you">Diolch!</string>
@@ -59,5 +64,5 @@
       Subject line for the order summary email. It will be in the format of
       "Just Java order for Amy" where Amy is the user's name. [CHAR LIMIT=NONE]
     -->
-    <string name="order_summary_email_subject">Dim ond Java archebu ar gyfer<xliff:g id="name" example="Amy">%s</xliff:g></string>
+    <string name="order_summary_email_subject">Dim ond Java archebu ar gyfer<xliff:g example="Amy" id="name"></xliff:g></string>
 </resources>
