@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked and displays content to the apps screen.
      */
     public void submitOrder(View view) {
-        EditText nameField =  findViewById(R.id.name_field);
+        EditText nameField = findViewById(R.id.name_field);
         name = nameField.getText().toString();
         hasWhippedCream();
         hasChocolate();
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     //Is the Whipped Cream check box selected
     private boolean hasWhippedCream() {
         boolean whippedCream;
-        CheckBox whippedCreamCheckBox =  findViewById(R.id.whipped_cream_check_box);
+        CheckBox whippedCreamCheckBox = findViewById(R.id.whipped_cream_check_box);
         whippedCream = whippedCreamCheckBox.isChecked();
         return whippedCream;
     }
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     //Is the chocolate check box selected
     private boolean hasChocolate() {
         boolean chocolate;
-        CheckBox chocolateCheckBox =  findViewById(R.id.chocolate_check_box);
+        CheckBox chocolateCheckBox = findViewById(R.id.chocolate_check_box);
         chocolate = chocolateCheckBox.isChecked();
         return chocolate;
     }
@@ -93,16 +93,16 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method displays the given quantity value on the screen.
      */
-    private void displayQuantity(int numberOfCoffees) {
-        TextView quantityTextView =  findViewById(R.id.quantity_text_view);
-        quantityTextView.setText(numberOfCoffees);
+    private void displayQuantity(int number) {
+        TextView quantityTextView = findViewById(R.id.quantity_text_view);
+        quantityTextView.setText(String.valueOf(number));
     }
 
     /**
      * This method displays the given price on the screen.
      */
     private void displayPrice(int numberOfCoffees) {
-        TextView orderSummaryTextView =  findViewById(R.id.order_summary_text_view);
+        TextView orderSummaryTextView = findViewById(R.id.order_summary_text_view);
         orderSummaryTextView.setText(NumberFormat.getCurrencyInstance().format(numberOfCoffees * basePricePerCupOfCoffee));
 
     }
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
      * This method displays the given text on the screen.
      */
     private void displayMessage(String message) {
-        TextView priceTextView =  findViewById(R.id.order_summary_text_view);
+        TextView priceTextView = findViewById(R.id.order_summary_text_view);
         priceTextView.setText(message);
     }
 
